@@ -1,50 +1,83 @@
-# Welcome to your Expo app 👋
+# Sightengine Visual Moderation App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a **React Native (Expo) application** that allows users to upload or select images, analyze their content via the Sightengine API, and get an AI-powered moderation summary powered by GPT. The app is designed with a clean, modern UI and supports both English and Turkish languages.
 
-## Get started
+## Features
 
-1. Install dependencies
+* **Image Analysis:** Upload an image or provide an image URL to analyze for inappropriate content (nudity, weapons, alcohol, drugs, offensive content, faces).
+* **Face Detection:** Automatically detects faces and draws bounding boxes on the uploaded image.
+* **AI-Powered Moderation Summary:** Uses GPT to generate a human-friendly summary of the analysis results in the selected language.
+* **Category Grouping:** Results are displayed in collapsible accordion sections, grouped by category.
+* **Language Support:** Switch easily between Turkish 🇹🇷 and English 🇬🇧.
+* **User Experience:** Simple, responsive design with clear action buttons and feedback messages.
+
+
+## Technologies Used
+
+* **React Native** (Expo)
+* **Sightengine API** for image content moderation
+* **OpenAI GPT API** for moderation summaries
+* **Lottie** for animated loaders
+* **Custom Hooks & Components:** Clean separation of logic for image analysis and UI rendering
+
+## Usage
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/EgemenShn01/sightengine-visual-moderation-app.git
+   cd sightengine-visual-moderation-app
+   ```
+
+2. **Install dependencies:**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. **Configure API keys:**
+
+   * Create a `.env` file in the project root:
+
+     ```
+     UPLOAD_API_USER=your_sightengine_api_user
+     UPLOAD_API_SECRET=your_sightengine_api_secret
+     OPENAI_API_KEY=your_openai_api_key
+     ```
+   * (Make sure to never commit your `.env` file to a public repository.)
+
+4. **Start the project:**
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+5. **Use on your device:**
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   * Open in Expo Go, or run on an iOS/Android simulator.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Notes
 
-## Get a fresh project
+* **Face Box Accuracy:** Face boxes are drawn based on coordinates returned by the Sightengine API. Occasional inaccuracies may occur due to API limitations.
+* **API Limits:** Sightengine and OpenAI APIs may have rate limits or quota restrictions; for production use, check pricing and usage policies.
+* **Extensibility:** You can customize category filters, UI design, or moderation logic as needed.
 
-When you're ready, run:
+## Roadmap / Ideas
 
-```bash
-npm run reset-project
-```
+* User login & history
+* Manual face box editing/removal
+* Customizable moderation categories
+* Dark mode support
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## License
 
-To learn more about developing your project with Expo, look at the following resources:
+MIT
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+### About `.env` security
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+* Always add `.env` to your `.gitignore`!
+* Never commit sensitive keys to your repository. If you did, rotate/regenerate those keys immediately.
